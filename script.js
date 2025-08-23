@@ -25,17 +25,36 @@
 // creatingCourses("java");
 // creatingCourses("op");
 
-let sum = function (a, b) {
-  return a + b;
-};
+// let sum = function (a, b) {
+//   return a + b;
+// };
 
-let diff = function (a, b) {
-  return a - b;
-};
+// let diff = function (a, b) {
+//   return a - b;
+// };
 
-function operate(operationFn, a, b) {
-  return operationFn(a, b);
+// function operate(operationFn, a, b) {
+//   return operationFn(a, b);
+// }
+
+// console.log(operate(sum, 2, 3));
+// console.log(operate(diff, 2, 3));
+
+function getData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("data fetched");
+    }, 5000);
+  });
 }
 
-console.log(operate(sum, 2, 3));
-console.log(operate(diff, 2, 3));
+async function fetchedData() {
+  try {
+    const result = await getData();
+    console.log(result);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+fetchedData();
